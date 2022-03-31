@@ -17,7 +17,6 @@ void printSum(std::string problems) {
   int sum{0};
   std::vector<std::string> nums = splitString(problems, ';');
   for (std::vector<std::string>::iterator it = nums.begin(); it != nums.end(); it++) {
-    std::cout << *it << std::endl;
     if ((*it).length() == 1) {
       sum += 1;
     }
