@@ -14,27 +14,20 @@ std::vector<std::string> splitString(const std::string str, const char delim) {
   return splittedString;
 }
 
-void printSum(std::string problems) {
-  int sum{0};
-  std::vector<std::string> nums = splitString(problems, ';');
-  for (std::vector<std::string>::iterator it = nums.begin(); it != nums.end(); it++) {
-    if ((*it).length() < 3) {
-      sum += 1;
-    }
-    else {
-      std::vector<std::string> strVector = splitString(*it, '-');
-      int n1 = std::stoi(strVector[0]);
-      int n2 = std::stoi(strVector[1]);
-      sum += n2 - n1 + 1; 
-    }
-  }
-  std::cout << sum << std::endl;
-}
-
 int main() {
-
+  int sum{0};
   std::string problems;
   std::cin >> problems;
-  printSum(problems);
+  std::vector<std::string> splitted = splitString(problems, ';');
+  for (const std::string& value: splitted) {
+    if (value.find('-') != std::string::npos) {
+      std::vector<std::string> ints = splitString(value, '-');
+      int n1 = std::stoi(ints[0]);
+      int n2 = std::stoi(ints[1]);
+      sum += n2 - n1;
+    }
+    sum++;
+  }
+  std::cout << sum << std::endl;
   return 0;
 }
