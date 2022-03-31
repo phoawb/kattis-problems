@@ -3,6 +3,7 @@
 #include <sstream>
 #include <vector>
 
+
 std::vector<std::string> splitString(const std::string str, const char delim) {
   std::stringstream ss(str);
   std::string token; 
@@ -17,7 +18,7 @@ void printSum(std::string problems) {
   int sum{0};
   std::vector<std::string> nums = splitString(problems, ';');
   for (std::vector<std::string>::iterator it = nums.begin(); it != nums.end(); it++) {
-    if ((*it).length() == 1) {
+    if ((*it).length() < 3) {
       sum += 1;
     }
     else {
@@ -31,6 +32,7 @@ void printSum(std::string problems) {
 }
 
 int main() {
+
   std::string problems;
   std::cin >> problems;
   printSum(problems);
