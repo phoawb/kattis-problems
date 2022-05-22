@@ -22,8 +22,8 @@ int main() {
   std::cin >> n;
   for (int i = 0; i < n; i++) {
     float v, o, x1, h1, h2;
-    float r = degrees2radians(o);
     std::cin >> v >> o >> x1 >> h1 >> h2;
+    float r = degrees2radians(o);
     float t = xTime(v, r, x1);
     float h = yHeight(v, t, r);
     if ((h2 - h) < 1.0 || (h - h1) < 1.0) { output += "Not Safe\n"; }
